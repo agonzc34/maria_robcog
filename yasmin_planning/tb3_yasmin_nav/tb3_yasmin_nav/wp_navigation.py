@@ -6,6 +6,8 @@ from simple_node import Node
 from yasmin import State, StateMachine
 from geometry_msgs.msg import PoseStamped
 
+from yasmin_viewer import YasminViewerPub
+
 from threading import Event
 from .locked_blackboard import LBlackboard as Blackboard
 import random
@@ -114,6 +116,8 @@ class WaypointNavigation(Node):
         sm.add_state("IDLE", IdleState(), transitions={Mode.Request.RANDOM: "RANDOM", Mode.Request.SEQUENTIAL: "SEQUENTIAL", 'end': "end_machine"})
         sm.add_state("RANDOM", RandomState(self), transitions={Mode.Request.SEQUENTIAL: "SEQUENTIAL", Mode.Request.IDLE: "IDLE"})
         sm.add_state("SEQUENTIAL", SequentialState(self), transitions={Mode.Request.RANDOM: "RANDOM", Mode.Request.IDLE: "IDLE"})
+        
+        YasminViewerPub(self, "waypoint_navigation", sm)
         
         sm.execute(self.blackboard)
         
