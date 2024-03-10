@@ -28,3 +28,9 @@ Para ello, se ha utilizado el método para crear el publisher dentro del constru
 ![yasmin_pub codigo](./imgs/yasmin_pub.png)
 
 ![yasmin_pub topic](./imgs/topic_echo.png)
+
+## e. Waypoint Navigation con Yasmin
+
+Se han implementado las máquinas de estado con el ejercicio de navegación de waypoints. Para ello, se ha contado con tres estados: "Aleatoria", "Secuencial" y "Parado". Se puede cambiar entre los 3 estados desde cualquier estado.
+
+![yasmin waypoint_navigation](./imgs/yasmin_waypoint.png)
