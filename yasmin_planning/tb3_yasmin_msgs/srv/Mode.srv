@@ -1,0 +1,7 @@
+string IDLE='idle'
+string RANDOM='random'
+string SEQUENTIAL='seq'
+
+string mode
+---
+string result
